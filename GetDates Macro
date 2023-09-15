@@ -1,0 +1,346 @@
+Private Sub GetDates()
+
+    
+    JanuaryLoop
+    FebruaryLoop
+    MarchLoop
+    AprilLoop
+    MayLoop
+    JuneLoop
+    JulyLoop
+    AugustLoop
+    SeptemberLoop
+    OctoberLoop
+    NovemberLoop
+    DecemberLoop
+    'This next step will clear any zeroes (in any format)
+    clearZeros
+    'This next step will account for any newborns in the current year, so their enrollment date is their birthday if applicable.
+    'If you do not have birthdays available, or just don't want to use this part, just remove the line. This will make it not run.
+    birthdayCheck
+    
+End Sub
+
+Private Sub JanuaryLoop()
+    Dim i As Integer
+    i = 2
+    ' Q is the disenrollment date
+    ' P is the enrollment date
+    ' C is the January Column
+    ' A is the unique ID
+        Do While i <= 40000 ' <----- Change this number to suit the needs of the file. Change this for each section!
+                            ' You will want this to be 5-10% larger than the amount of starting lines of the file.
+                            ' This is to account for the additonal lines being added as the code runs.
+                            ' No, it's not clean but it works.
+        If Range("Q" & i).Value = 0 Then
+            If Range("P" & i).Value = 0 Then
+                If Range("C" & i).Value = 1 Then Range("P" & i).Value = "1/1/2022" '<--- Change Date
+                End If
+                
+        ElseIf Range("C" & i).Value = 1 Then
+            If Range("A" & i + 1).Value <> Range("A" & i).Value Then
+            
+                Rows(i + 1).Insert
+                Rows(i).Copy
+                Rows(i + 1).Select
+                ActiveSheet.Paste
+                Range("P" & i + 1).Value = "1/1/2022" '<--- Change Date
+                Range("Q" & i + 1).Value = 0
+            End If
+        End If
+        i = i + 1
+            
+        Loop
+End Sub
+
+Private Sub FebruaryLoop()
+    Dim i As Integer
+    i = 2
+        Do While i <= 40000 ' <----- Change this number
+        If Range("Q" & i).Value = 0 Then
+            If Range("P" & i).Value = 0 Then
+                If Range("D" & i).Value = 1 Then Range("P" & i).Value = "2/1/2022" '<--- Change Date
+            ElseIf Range("D" & i).Value = 0 Then Range("Q" & i).Value = "1/31/2022" '<--- Change Date
+            End If
+        ElseIf Range("D" & i).Value = 1 Then
+            If Range("A" & i + 1).Value <> Range("A" & i).Value Then
+                Rows(i + 1).Insert
+                Rows(i).Copy
+                Rows(i + 1).Select
+                ActiveSheet.Paste
+                Range("P" & i + 1).Value = "2/1/2022" '<--- Change Date
+                Range("Q" & i + 1).Value = 0
+            End If
+        End If
+        i = i + 1
+            
+        Loop
+End Sub
+Private Sub MarchLoop()
+    Dim i As Integer
+    i = 2
+        Do While i <= 40000 ' <----- Change this number
+        If Range("Q" & i).Value = 0 Then
+            If Range("P" & i).Value = 0 Then
+                If Range("E" & i).Value = 1 Then Range("P" & i).Value = "3/1/2022" '<--- Change Date
+            ElseIf Range("E" & i).Value = 0 Then Range("Q" & i).Value = "2/28/2022" '<--- Change Date
+            End If
+        ElseIf Range("E" & i).Value = 1 Then
+            If Range("A" & i + 1).Value <> Range("A" & i).Value Then
+                Rows(i + 1).Insert
+                Rows(i).Copy
+                Rows(i + 1).Select
+                ActiveSheet.Paste
+                Range("P" & i + 1).Value = "3/1/2022" '<--- Change Date
+                Range("Q" & i + 1).Value = 0
+            End If
+        End If
+        i = i + 1
+            
+        Loop
+End Sub
+
+Private Sub AprilLoop()
+    Dim i As Integer
+    i = 2
+        Do While i <= 40000 ' <----- Change this number
+        If Range("Q" & i).Value = 0 Then
+            If Range("P" & i).Value = 0 Then
+                If Range("F" & i).Value = 1 Then Range("P" & i).Value = "4/1/2022" '<--- Change Date
+            ElseIf Range("F" & i).Value = 0 Then Range("Q" & i).Value = "3/31/2022" '<--- Change Date
+            End If
+        ElseIf Range("F" & i).Value = 1 Then
+            If Range("A" & i + 1).Value <> Range("A" & i).Value Then
+                Rows(i + 1).Insert
+                Rows(i).Copy
+                Rows(i + 1).Select
+                ActiveSheet.Paste
+                Range("P" & i + 1).Value = "4/1/2022" '<--- Change Date
+                Range("Q" & i + 1).Value = 0
+            End If
+        End If
+        i = i + 1
+            
+        Loop
+End Sub
+Private Sub MayLoop()
+    Dim i As Integer
+    i = 2
+        Do While i <= 40000 ' <----- Change this number
+        If Range("Q" & i).Value = 0 Then
+            If Range("P" & i).Value = 0 Then
+                If Range("G" & i).Value = 1 Then Range("P" & i).Value = "5/1/2022" '<--- Change Date
+            ElseIf Range("G" & i).Value = 0 Then Range("Q" & i).Value = "4/30/2022" '<--- Change Date
+            End If
+        ElseIf Range("G" & i).Value = 1 Then
+            If Range("A" & i + 1).Value <> Range("A" & i).Value Then
+                Rows(i + 1).Insert
+                Rows(i).Copy
+                Rows(i + 1).Select
+                ActiveSheet.Paste
+                Range("P" & i + 1).Value = "5/1/2022" '<--- Change Date
+                Range("Q" & i + 1).Value = 0
+            End If
+        End If
+        i = i + 1
+            
+        Loop
+End Sub
+Private Sub JuneLoop()
+    Dim i As Integer
+    i = 2
+        Do While i <= 40000 ' <----- Change this number
+        If Range("Q" & i).Value = 0 Then
+            If Range("P" & i).Value = 0 Then
+                If Range("H" & i).Value = 1 Then Range("P" & i).Value = "6/1/2022" '<--- Change Date
+            ElseIf Range("H" & i).Value = 0 Then Range("Q" & i).Value = "5/31/2022" '<--- Change Date
+            End If
+        ElseIf Range("H" & i).Value = 1 Then
+            If Range("A" & i + 1).Value <> Range("A" & i).Value Then
+                Rows(i + 1).Insert
+                Rows(i).Copy
+                Rows(i + 1).Select
+                ActiveSheet.Paste
+                Range("P" & i + 1).Value = "6/1/2022" '<--- Change Date
+                Range("Q" & i + 1).Value = 0
+            End If
+        End If
+        i = i + 1
+            
+        Loop
+End Sub
+Private Sub JulyLoop()
+    Dim i As Integer
+    i = 2
+        Do While i <= 40000 ' <----- Change this number
+        If Range("Q" & i).Value = 0 Then
+            If Range("P" & i).Value = 0 Then
+                If Range("I" & i).Value = 1 Then Range("P" & i).Value = "7/1/2022" '<--- Change Date
+            ElseIf Range("I" & i).Value = 0 Then Range("Q" & i).Value = "6/30/2022" '<--- Change Date
+            End If
+        ElseIf Range("I" & i).Value = 1 Then
+            If Range("A" & i + 1).Value <> Range("A" & i).Value Then
+                Rows(i + 1).Insert
+                Rows(i).Copy
+                Rows(i + 1).Select
+                ActiveSheet.Paste
+                Range("P" & i + 1).Value = "7/1/2022" '<--- Change Date
+                Range("Q" & i + 1).Value = 0
+            End If
+        End If
+        i = i + 1
+            
+        Loop
+End Sub
+Private Sub AugustLoop()
+    Dim i As Integer
+    i = 2
+        Do While i <= 40000 ' <----- Change this number
+        If Range("Q" & i).Value = 0 Then
+            If Range("P" & i).Value = 0 Then
+                If Range("J" & i).Value = 1 Then Range("P" & i).Value = "8/1/2022" '<--- Change Date
+            ElseIf Range("J" & i).Value = 0 Then Range("Q" & i).Value = "7/31/2022" '<--- Change Date
+            End If
+        ElseIf Range("J" & i).Value = 1 Then
+            If Range("A" & i + 1).Value <> Range("A" & i).Value Then
+                Rows(i + 1).Insert
+                Rows(i).Copy
+                Rows(i + 1).Select
+                ActiveSheet.Paste
+                Range("P" & i + 1).Value = "8/1/2022" '<--- Change Date
+                Range("Q" & i + 1).Value = 0
+            End If
+        End If
+        i = i + 1
+            
+        Loop
+End Sub
+Private Sub SeptemberLoop()
+    Dim i As Integer
+    i = 2
+        Do While i <= 40000 ' <----- Change this number
+        If Range("Q" & i).Value = 0 Then
+            If Range("P" & i).Value = 0 Then
+                If Range("K" & i).Value = 1 Then Range("P" & i).Value = "9/1/2022" '<--- Change Date
+            ElseIf Range("K" & i).Value = 0 Then Range("Q" & i).Value = "8/31/2022" '<--- Change Date
+            End If
+        ElseIf Range("K" & i).Value = 1 Then
+            If Range("A" & i + 1).Value <> Range("A" & i).Value Then
+                Rows(i + 1).Insert
+                Rows(i).Copy
+                Rows(i + 1).Select
+                ActiveSheet.Paste
+                Range("P" & i + 1).Value = "9/1/2022" '<--- Change Date
+                Range("Q" & i + 1).Value = 0
+            End If
+        End If
+        i = i + 1
+            
+        Loop
+End Sub
+Private Sub OctoberLoop()
+    Dim i As Integer
+    i = 2
+        Do While i <= 40000 ' <----- Change this number
+        If Range("Q" & i).Value = 0 Then
+            If Range("P" & i).Value = 0 Then
+                If Range("L" & i).Value = 1 Then Range("P" & i).Value = "10/1/2022" '<--- Change Date
+            ElseIf Range("L" & i).Value = 0 Then Range("Q" & i).Value = "9/30/2022" '<--- Change Date
+            End If
+        ElseIf Range("L" & i).Value = 1 Then
+            If Range("A" & i + 1).Value <> Range("A" & i).Value Then
+                Rows(i + 1).Insert
+                Rows(i).Copy
+                Rows(i + 1).Select
+                ActiveSheet.Paste
+                Range("P" & i + 1).Value = "10/1/2022" '<--- Change Date
+                Range("Q" & i + 1).Value = 0
+            End If
+        End If
+        i = i + 1
+            
+        Loop
+End Sub
+Private Sub NovemberLoop()
+    Dim i As Integer
+    i = 2
+        Do While i <= 40000 ' <----- Change this number
+        If Range("Q" & i).Value = 0 Then
+            If Range("P" & i).Value = 0 Then
+                If Range("M" & i).Value = 1 Then Range("P" & i).Value = "11/1/2022" '<--- Change Date
+            ElseIf Range("M" & i).Value = 0 Then Range("Q" & i).Value = "10/31/2022" '<--- Change Date
+            End If
+        ElseIf Range("M" & i).Value = 1 Then
+            If Range("A" & i + 1).Value <> Range("A" & i).Value Then
+                Rows(i + 1).Insert
+                Rows(i).Copy
+                Rows(i + 1).Select
+                ActiveSheet.Paste
+                Range("P" & i + 1).Value = "11/1/2022" '<--- Change Date
+                Range("Q" & i + 1).Value = 0
+            End If
+        End If
+        i = i + 1
+            
+        Loop
+End Sub
+Private Sub DecemberLoop()
+    Dim i As Integer
+    i = 2
+        Do While i <= 40000 ' <----- Change this number
+        If Range("Q" & i).Value = 0 Then
+            If Range("P" & i).Value = 0 Then
+                If Range("N" & i).Value = 1 Then Range("P" & i).Value = "12/1/2022" '<--- Change Date
+            ElseIf Range("N" & i).Value = 0 Then Range("Q" & i).Value = "11/30/2022" '<--- Change Date
+            End If
+        ElseIf Range("N" & i).Value = 1 Then
+            If Range("A" & i + 1).Value <> Range("A" & i).Value Then
+                Rows(i + 1).Insert
+                Rows(i).Copy
+                Rows(i + 1).Select
+                ActiveSheet.Paste
+                Range("P" & i + 1).Value = "12/1/2022" '<--- Change Date
+                Range("Q" & i + 1).Value = 0
+            End If
+        End If
+        i = i + 1
+            
+        Loop
+End Sub
+Private Sub clearZeros()
+    Dim i As Long
+    
+    i = 2
+        Do While i <= 40000 ' <----- Change this number
+        
+            If Range("P" & i).Value = 0 Then
+                Range("P" & i).Value = ""
+            ElseIf Range("P" & i).Value = "1/0/1900" Then
+                Range("P" & i).Value = ""
+            End If
+        
+            If Range("Q" & i).Value = 0 Then
+                Range("Q" & i).Value = ""
+            ElseIf Range("Q" & i).Value = "1/0/1900" Then
+                Range("Q" & i).Value = ""
+            End If
+            
+        i = i + 1
+        Loop
+    Columns("A:Q").EntireColumn.AutoFit
+End Sub
+
+Private Sub birthdayCheck()
+    Dim i As Integer
+    
+    i = 2
+    ' B is the person's birthday
+        Do While i <= 40000 ' <----- Change this number
+            If Range("P" & i).Value > 0 Then
+                If Range("B" & i).Value > Range("P" & i).Value Then
+                    Range("P" & i).Value = Range("B" & i).Value
+                End If
+            End If
+        i = i + 1
+        Loop
+End Sub
